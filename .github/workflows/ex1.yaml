@@ -1,4 +1,4 @@
-name: npm test one job
+npmname: npm test one job
 on:
   workflow_dispatch:
 
@@ -12,8 +12,10 @@ jobs:
           uses: actions/setup-node@v6
           with:
             node-version: 'lts/*'
-        - name: run test
+        - name: npm install
           shell: bash
-          run: |
-            npm install
-            npm test
+          run: npm install
+
+        - name: npm test
+          shell: bash
+          run: npm test
