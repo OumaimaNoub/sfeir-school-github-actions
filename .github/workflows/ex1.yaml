@@ -1,4 +1,4 @@
-npmname: npm test one job
+name: npm test one job
 on:
   workflow_dispatch:
 
