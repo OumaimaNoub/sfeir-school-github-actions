@@ -18,14 +18,15 @@ jobs:
 
       - name: run install
         shell: bash
+        working-directory: ./docs
         run: |
           npm install
 
       - name: cache node_modules
         uses: actions/cache@v5
         with:
-          path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ./docs/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('docs/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
@@ -45,12 +46,13 @@ jobs:
       - name: restore node_modules
         uses: actions/cache@v5
         with:
-          path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ./docs/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('docs/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
       - name: run test
         shell: bash
+        working-directory: ./docs
         run: |
           npm test
