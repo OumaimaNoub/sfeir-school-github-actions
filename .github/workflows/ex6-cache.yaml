@@ -21,6 +21,7 @@ jobs:
         - name: run install
           shell: bash
           run: |
+            cd ./docs 
             npm install
 
   run-npm-test:
@@ -42,4 +43,5 @@ jobs:
         - name: run test
           shell: bash
           run: |
+            cd ./docs 
             npm test
